@@ -27,7 +27,7 @@ let handler = async (m, { conn, text, participants, command }) => {
 
     if (total === 0) return conn.reply(m.chat, `*⚠️ En este grupo no hay fantasmas.*`, m)
 
-    let mensaje = `𝗙𝗔𝗡𝗧𝗔𝗦𝗠𝗔𝗦 𝗘𝗡𝗖𝗢𝗡𝗧𝗥𝗔𝗗𝗢𝗦 👻\n*INTEGRANTES:* ${sum}\n*INACTIVOS:* ${total}\n\nෆ *ETIQUETAS*\n${sider.map(v => '${emotg} @' + v.replace(/@.+/, '')).join('\n')}`
+    let mensaje = `𝗙𝗔𝗡𝗧𝗔𝗦𝗠𝗔𝗦 𝗘𝗡𝗖𝗢𝗡𝗧𝗥𝗔𝗗𝗢𝗦 👻\n*INTEGRANTES:* ${sum}\n*INACTIVOS:* ${total}\n\nෆ *ETIQUETAS*\n${sider.map(v => `${emotg} @` + v.replace(/@.+/, '')).join('\n')}`
 
     await conn.sendMessage(m.chat, {
       text: mensaje,
