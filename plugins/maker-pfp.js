@@ -95,7 +95,7 @@ let handler = async (m, { conn, args }) => {
         let pp = await conn.profilePictureUrl(who, 'image');
         await conn.sendFile(m.chat, pp, 'profile.jpg', `🖼️ *Foto de perfil de \`${name || 'Usuario'}\`*`, m);
     } catch {
-        await m.reply(`⚠️ *El usuario \`${name || 'Usuario'}\` no tiene foto de perfil o no se pudo obtener.*`);
+        await m.reply(`⚠️ *El usuario \`${name || 'Gatita grr'}\` no tiene foto de perfil o no se pudo obtener.*`);
     }
 };
 
