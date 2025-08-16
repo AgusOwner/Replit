@@ -47,11 +47,19 @@ export default handler;*/
 let handler = async (m, { conn, args }) => {
     let who;
 
-    if (args.length > 0) {
-        // 📌 Normalizamos el número ingresado
+    // 🔹 Si responde a un mensaje, usar ese JID directamente
+    if (m.quoted) {
+        who = m.quoted.sender;
+    }
+    // 🔹 Si hay menciones, tomar el JID directamente (sin procesar como número)
+    else if (m.mentionedJid?.length) {
+        who = m.mentionedJid[0];
+    }
+    // 🔹 Si no, se valida número manualmente
+    else if (args.length > 0) {
         let input = args.join('').replace(/\D/g, '');
         if (input.length < 8) {
-            return m.reply('*✖️ Número inválido. Asegúrate de ingresar un número completo.*');
+            return m.reply('*no sirve bro toca mimir creo 👌🏻*');
         }
 
         // ✅ Probar con JID normal y LID
@@ -70,10 +78,6 @@ let handler = async (m, { conn, args }) => {
         }
 
         who = exists.jid;
-    } else if (m.quoted) {
-        who = m.quoted.sender;
-    } else if (m.mentionedJid?.length) {
-        who = m.mentionedJid[0];
     } else {
         return conn.reply(m.chat, `*${emojis} Debes responder a un mensaje, etiquetar a un usuario o ingresar un número válido.*`, m, rcanal);
     }
@@ -91,7 +95,6 @@ let handler = async (m, { conn, args }) => {
         let pp = await conn.profilePictureUrl(who, 'image');
         await conn.sendFile(m.chat, pp, 'profile.jpg', `🖼️ *Foto de perfil de \`${name}\`*`, m);
     } catch {
-        // Mensaje simple si no tiene foto
         await m.reply(`⚠️ *El usuario \`${name}\` no tiene foto de perfil o no se pudo obtener.*`);
     }
 };
