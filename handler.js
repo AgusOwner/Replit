@@ -174,71 +174,62 @@ export async function handler(chatUpdate) {
 
         let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
+// 🔹 Normalizadores de JID y números
+const normalizeJid = jid => (jid ? jid.replace(/[^0-9]/g, '') : '')
+const cleanJid = jid => (jid ? jid.split(':')[0] : '')
 
-// 🔧 Función utilitaria para limpiar número
-const cleanNumber = jid => jid ? jid.split(':')[0].replace(/[^0-9]/g, '') : ''
+// 🔹 Número del remitente
+const sendNum = normalizeJid(m.sender)
 
-// 📌 Obtener número del remitente
-const sendNum = cleanNumber(m?.sender)
+// 🔹 Dueños
+const ownerNums = [
+  conn.decodeJid(global.conn?.user?.id),
+  ...(global.owner || []).map(([num]) => num)
+].map(v => normalizeJid(v))
 
-// 📌 Detectar Owner real
-const isROwner = [
-  conn.decodeJid(global.conn?.user?.id || ''), 
-  ...(global.owner || []).map(([number]) => number)
-].map(v => cleanNumber(v)).includes(sendNum)
-
-// 📌 Mods / Prems
+const isROwner = ownerNums.includes(sendNum)
 const isOwner = isROwner || m.fromMe
-const isMods = isOwner || (global.mods || [])
-  .map(v => cleanNumber(v) + '@s.whatsapp.net')
-  .includes(m.sender)
 
-const isPrems = isOwner 
-  || (global.prems || []).map(v => cleanNumber(v) + '@s.whatsapp.net').includes(m.sender) 
-  || _user?.prem === true 
-  || isMods
+// 🔹 Moderadores
+const modsNums = (global.mods || []).map(v => normalizeJid(v) + '@s.whatsapp.net')
+const isMods = isOwner || modsNums.includes(m.sender)
 
-// 📌 Cola de mensajes (queque)
+// 🔹 Premiums
+const premsNums = (global.prems || []).map(v => normalizeJid(v) + '@s.whatsapp.net')
+const isPrems = isOwner || isMods || premsNums.includes(m.sender) || _user.prem === true
+
+// 🔹 Cola de mensajes (para usuarios que no son prems o mods)
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
   let queque = this.msgqueque, time = 5000
   const previousID = queque[queque.length - 1]
   queque.push(m.id || m.key.id)
-  const interval = setInterval(async () => {
-    if (queque.indexOf(previousID) === -1) clearInterval(interval)
+  setInterval(async function () {
+    if (!queque.includes(previousID)) clearInterval(this)
     await delay(time)
   }, time)
 }
 
-// 📌 Ignorar mensajes del propio Baileys
 if (m.isBaileys) return
-
-// 📌 Experiencia random
 m.exp += Math.ceil(Math.random() * 10)
 
-// 📌 Metadata de grupo
-const groupMetadata = m.isGroup ? await this.groupMetadata(m.chat).catch(_ => ({})) : {}
-const participants = groupMetadata?.participants || []
-
-// 📌 Detectar usuario/bot en grupo
-const senderNum = cleanNumber(m.sender)
-const botNums = [this.user?.jid, this.user?.lid].map(j => cleanNumber(j))
-
-const user = m.isGroup 
-  ? participants.find(u => cleanNumber(u.id) === senderNum) 
+// 🔹 Metadata de grupo
+const groupMetadata = m.isGroup
+  ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) || {}
   : {}
 
-const bot = m.isGroup 
-  ? participants.find(u => botNums.includes(cleanNumber(u.id))) 
-  : {}
+const participants = m.isGroup ? groupMetadata.participants || [] : []
 
-const userJidd = m.isGroup 
-  ? participants.find(u => conn.decodeJid(u.id) === m.sender) 
-  : {}
+// 🔹 Participantes
+const senderNumNorm = normalizeJid(m.sender)
+const botNums = [this.user?.jid, this.user?.lid].map(j => normalizeJid(cleanJid(j)))
 
-// 📌 Roles de admin
+const user = m.isGroup ? participants.find(u => normalizeJid(u.id) === senderNumNorm) : {}
+const bot = m.isGroup ? participants.find(u => botNums.includes(normalizeJid(u.id))) : {}
+
+// 🔹 Admins
 const isRAdmin = user?.admin === 'superadmin'
-const isAdmin = isRAdmin || user?.admin === 'admin' || userJidd?.admin === 'admin'
-const isBotAdmin = bot?.admin === 'admin' || bot?.admin === 'superadmin'
+const isAdmin = isRAdmin || user?.admin === 'admin'
+const isBotAdmin = bot?.admin === 'admin' || !!bot?.admin
 
 
         const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
