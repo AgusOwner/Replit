@@ -190,6 +190,6 @@ handler.help = ['salirgc <link>']
 handler.tags = ['owner']
 handler.command = /^salirgc$/i
 handler.rowner = true
-handler.private = true
+handler.private = false 
 
 export default handler
