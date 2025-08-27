@@ -1,23 +1,27 @@
-import yts from "yt-search"
+import yts from 'yt-search';
+import fetch from 'node-fetch';
+import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 
-const handler = async (m, { conn, command, text }) => {
-  if (!text) return m.reply("❌ Ingresa el nombre de la canción o link de YouTube")
+const handler = async (m, { conn, args, usedPrefix }) => {
+    if (!args[0]) return conn.reply(m.chat, `*${emojis} Proporciona un título de YouTube.*\n$> {emojis} *ᴇᴊᴇᴍᴘʟᴏ:*\n*${usedPrefix + command}* Gata Only`, m, rcanal);
 
-  m.reply("🔎 Buscando...")
+    await m.react('🕓');
+    try {
+        let searchResults = await searchVideos(args.join(" "));
 
-  // Buscar video
-  const search = await yts(text)
-  const video = search.videos[0]
-  if (!video) return m.reply("⚠️ No encontré resultados")
+        if (!searchResults.length) throw new Error('No se encontraron resultados.');
 
-  // Generar links a servicios externos (ytmp3 / ytmp4)
-  let mp3 = `https://ytmp3.plus/${encodeURIComponent(video.url)}`
-  let mp4 = `https://ytmp4.plus/${encodeURIComponent(video.url)}`
+        let video = searchResults[0];
+        let thumbnail = await (await fetch(video.miniatura)).buffer();
 
-  // Mensaje con botones
-  let caption = `🎶 *${video.title}*\n\n⏱️ Duración: ${video.timestamp}\n👀 Vistas: ${video.views}\n📅 Publicado: ${video.ago}`
+        let messageText = `*Youtube - Download*\n\n`;
+        messageText += `${video.titulo}\n\n`;
+        messageText += `*⌛ Duración:* ${video.duracion || 'No disponible'}\n`;
+        messageText += `*👤 Autor:* ${video.canal || 'Desconocido'}\n`;
+        messageText += `*📆 Publicado:* ${convertTimeToSpanish(video.publicado)}\n`;
+        messageText += `*🖇️ Url:* ${video.url}\n`;
 
-          await conn.sendMessage(m.chat, {
+        await conn.sendMessage(m.chat, {
             image: thumbnail,
             caption: messageText,
             footer: dev,
@@ -28,7 +32,7 @@ const handler = async (m, { conn, command, text }) => {
             },
             buttons: [
                 {
-                    buttonId: `${usedPrefix}ytmp3 ${video.url}`,
+                    buttonId: `${usedPrefix}ytmp3_v2 ${video.url}`,
                     buttonText: { displayText: 'Audio' },
                     type: 1,
                 },
@@ -42,7 +46,42 @@ const handler = async (m, { conn, command, text }) => {
             viewOnce: true
         }, { quoted: m });
 
-handler.command = ["play", "play2"]
-handler.tags = ["descargas"]
+        await m.react('✅');
+    } catch (e) {
+        console.error(e);
+        await m.react('✖️');
+        conn.reply(m.chat, '*`Error al buscar el video.`*', m);
+    }
+};
 
-export default handler
+handler.help = ['play'];
+handler.tags = ['descargas'];
+handler.command = ['play'];
+export default handler;
+
+async function searchVideos(query) {
+    try {
+        const res = await yts(query);
+        return res.videos.slice(0, 10).map(video => ({
+            titulo: video.title,
+            url: video.url,
+            miniatura: video.thumbnail,
+            canal: video.author.name,
+            publicado: video.timestamp || 'No disponible',
+            vistas: video.views || 'No disponible',
+            duracion: video.duration.timestamp || 'No disponible'
+        }));
+    } catch (error) {
+        console.error('Error en yt-search:', error.message);
+        return [];
+    }
+}
+
+function convertTimeToSpanish(timeText) {
+    return timeText
+        .replace(/year/, 'año').replace(/years/, 'años')
+        .replace(/month/, 'mes').replace(/months/, 'meses')
+        .replace(/day/, 'día').replace(/days/, 'días')
+        .replace(/hour/, 'hora').replace(/hours/, 'horas')
+        .replace(/minute/, 'minuto').replace(/minutes/, 'minutos');
+}
