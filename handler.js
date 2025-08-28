@@ -195,57 +195,6 @@ export async function handler(chatUpdate) {
             console.error(e)
         }
 
-let _user = global.db.data?.users?.[m.sender]  // ✅ Solo una vez
-const detectwhat = m.sender.includes('@lid') ? '@lid' : '@s.whatsapp.net';
-const isROwner = [...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender)
-const isOwner = isROwner || m.fromMe
-const isMods = isROwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender)
-const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + detectwhat).includes(m.sender) || _user.premium == true
-
-if (m.isBaileys) return
-if (opts['nyimak'])  return
-if (!isROwner && opts['self']) return
-if (opts['swonly'] && m.chat !== 'status@broadcast')  return
-if (typeof m.text !== 'string')
-m.text = ''
-
-if (opts['queque'] && m.text && !(isMods || isPrems)) {
-let queque = this.msgqueque, time = 1000 * 5
-const previousID = queque[queque.length - 1]
-queque.push(m.id || m.key.id)
-setInterval(async function () {
-if (queque.indexOf(previousID) === -1) clearInterval(this)
-await delay(time)
-}, time)
-}
-
-m.exp += Math.ceil(Math.random() * 10)
-
-let usedPrefix
-
-async function getLidFromJid(id, conn) {
-if (id.endsWith('@lid')) return id
-const res = await conn.onWhatsApp(id).catch(() => [])
-return res[0]?.lid || id
-}
-const senderLid = await getLidFromJid(m.sender, conn)
-const botLid = await getLidFromJid(conn.user.jid, conn)
-const senderJid = m.sender
-const botJid = conn.user.jid
-const groupMetadata = m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}
-const participants = m.isGroup ? (groupMetadata.participants || []) : []
-const user = participants.find(p => p.id === senderLid || p.jid === senderJid) || {}
-const bot = participants.find(p => p.id === botLid || p.id === botJid) || {}
-const isRAdmin = user?.admin === "superadmin"
-const isAdmin = isRAdmin || user?.admin === "admin"
-const isBotAdmin = !!bot?.admin
-
-
-
-
-
-
-/*
         if (opts['nyimak'])  return
         if (!m.fromMe && opts['self'])  return
         if (opts['swonly'] && m.chat !== 'status@broadcast')  return
@@ -302,7 +251,6 @@ const isBotAdmin = bot.admin === 'admin' || bot.admin === 'superadmin'
 m.isWABusiness = ['smba', 'smbi'].includes(global.conn.authState?.creds?.platform)
 m.isChannel = m.chat.includes('@newsletter') || m.sender.includes('@newsletter')
 
-*/
 /*
 if (opts['nyimak']) return
 if (!m.fromMe && opts['self']) return
