@@ -1,4 +1,3 @@
-Coloca esto en el repo de jota
 
 const handler = async (m, { conn, text, args, usedPrefix, command }) => {
 
