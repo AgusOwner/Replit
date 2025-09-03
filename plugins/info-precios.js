@@ -15,8 +15,8 @@ let handler = async (m, { conn, command }) => {
 
         // Enviar contacto
         let list = [{
-            displayName: "Jota",
-            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: Jota\nitem1.TEL;waid=573155227977:573155227977\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: novaspark.community@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://www.instagram.com/nohayxd\nitem3.X-ABLabel:Instagram\nitem4.ADR:;; Perú;;;;\nitem4.X-ABLabel:Región\nEND:VCARD`,
+            displayName: "Chinchu",
+            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: Chinchu\nitem1.TEL;waid=5493855789747:5493855789747\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: novaspark.community@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://www.instagram.com/nohayxd\nitem3.X-ABLabel:Instagram\nitem4.ADR:;; Argentina 🇦🇷;;;;\nitem4.X-ABLabel:Región\nEND:VCARD`,
         }];
 
         await conn.sendMessage(m.chat, {
