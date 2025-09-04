@@ -116,8 +116,7 @@ ${taguser} decidió
 ➤ Abandonar el grupo 😒  
 ➤ Mucho nivel pa alguien tan malo. 😌  
 
-🪦 Que le vaya bien, por la sombra...`,
-`╭───────👾───────╮
+🪦 Que le vaya bien, por la sombra...`,`╭───────👾───────╮
      🚪 SE FUE 🚪
      ${taguser}
 ╰───────👾───────╯
