@@ -18,28 +18,46 @@ export async function before(m, { conn, participants, groupMetadata }) {
   let txt = `¡Bienvenid@! ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo.`
   let txt1 = `¡Adiós! ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo`
   let txt2 = `Se salió ${await conn.getName(who)}\nAhora somos ${groupSize} miembros en el grupo.`
-  let sunflare = `Credits to Sunflare Team ⛅`
-  let sunflare1 = `Credits to Shadow′s Club 🌹`
-  let sunflare2 = `Credits to Ī′m Dev.Criss 🇦🇱`
+  let sunflare = `Yancito Bot `
 
 if (chat.welcome && m.messageStubType == 27) {
   const groupName = groupMetadata.subject
   const groupDesc = groupMetadata.desc || 'sin descripción'
 
   const msgsWelcome = [
-    `┏─────────────────┐
-「 ${taguser} 」
-𝘽𝙄𝙀𝙉𝙑𝙀𝙉𝙄𝘿𝙓 😊
-𝑫𝒊𝒔𝒇𝒓𝒖𝒕𝒂 𝒅𝒆 𝒕𝒖 𝒆𝒔𝒕𝒂𝒅𝒊𝒂 𝒓𝒆𝒄𝒖𝒆𝒓𝒅𝒂 𝒄𝒖𝒎𝒑𝒍𝒊𝒓 𝒍𝒂𝒔 𝒓𝒆𝒈𝒍𝒂𝒔 𝒚 𝒍𝒆𝒆𝒓 l𝒂 𝒅𝒆𝒔𝒄𝒓𝒊𝒑𝒄𝒊𝒐𝒏 ✨
+    `┏━━━━━━━━━━━━━━━━━━━┓
+┃      ✨ 𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗫  ✨     ┃ 
+┗━━━━━━━━━━━━━━━━━━━┛
+╭─▸ 👤 Nuevo miembro:  
+│      ${taguser} 
+│
+╰─▸ 🎉 Aquí se viene a:  
+       ─ Reír 😂  
+       ─ Compartir 🌍  
+       ─ Pasarla brutal 🔥  
+       ─ Hacer historia ⭐
+       
+┏━━━━━ 🎊 DISFRUTA 🎊 ━━━━━┓
+┃   🚀 Ponte cómodx, que esto  
+┃   es más que un grupo...  
+┃   ¡Es una familia! 💜  
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-└───── 𝙅𝙊𝙏𝘼 𝘽𝙊𝙏🐼─────┘`,
-    `┏━━━━━━━━━━━━
-┃──〘 *𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗫* 〙───
-┃━━━━━━━━━━━━
-┃ *_🐼 𝗘𝗡𝗧𝗥𝗢   ${taguser}_* 
-┃ *_Un gusto tenerte aqui_*
-┃ *_Disfruta tu estadía 😇_*
-┗━━━𝙅𝙊𝙏𝘼 𝘽𝙊𝙏━━━━`
+By ${botname}`,
+    `╔═══════════════════╗
+  🎮 ＢＩＥＮＶＥＮＩＤ X 🎮
+╚═══════════════════╝
+
+⚡ ${taguser} ⚡  
+✨ ¡Un gusto tenerte aquí! ✨  
+
+📜 Reglas básicas:  
+➤ Respeta a todos 🤝  
+➤ Lee la descripción 📖  
+➤ Disfruta y juega limpio 🕹️  
+
+⚔️ ${groupName.toUpperCase()} ⚔️  
+「 ¡Que comience la partida! 」🔥`
   ]
 
 
