@@ -22,7 +22,7 @@ global.prems = ['51965911060', '51906168999']
 
 
 global.packname = 'Jota Bot MD'
-global.botname = 'Yancito Bot - MD'
+global.botname = '𝗬𝗔𝗡𝗖𝗜𝗧𝗢 𝗕𝗢𝗧🕷️'
 global.wm = 'Yancito Bot - MD'
 global.author = '𝗬𝗮𝗻𝗰𝗶𝘁𝗼 𝗕𝗼𝘁'
 global.dev = 'Yancito Bot MD'
