@@ -23,29 +23,29 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 let tags = {};
 let emojis = {
-  main: "🤍",
-  info: "☁️",
+  main: "🕷️",
+  info: "🗒️",
   config: "⚙️",
-  dl: "🫧",
-  search: "🧋",
+  dl: "🔽",
+  search: "🔎",
   ia: "🤖",
-  ff: "👾",
-  frases: "💞",
-  converter: "🪾",
+  ff: "🕹️",
+  frases: "✍️",
+  converter: "🔄",
   tools: "🛠️",
-  gc: "🌲",
+  gc: "👾",
   efectos: "🪻",
-  fun: "🍿",
-  game: "🕹️",
+  fun: "😂",
+  game: "🎯",
   anime: "🍬",
   maker: "🌷",
   logos: "🏝️",
   emox: "🪼",
-  nsfw: "🍒",
+  nsfw: "🥵",
   sticker: "⚡",
   rpg: "💸",
   rg: "🪴",
-  owner: "☕"
+  owner: "🤓"
 };
 
 const tagTitles = {
