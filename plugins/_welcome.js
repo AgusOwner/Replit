@@ -64,12 +64,25 @@ if (chat.welcome && m.messageStubType == 28) {
         .replace(/@user/g, taguser)
         .replace(/@group/g, groupName)
         .replace(/@desc/g, groupDesc)
-    : `┌─★ 𝙅𝙊𝙏𝘼 𝘽𝙊𝙏🐼 
-│「 ADIOS 👋 」
-└┬★ 「 ${taguser} 」
-   │☠️ *Acabas de ser escupido por puta planta*
-   │💫 *Ni modo, hasta luego...*
-   └────────┈ ⳹`    
+    : `︵‿︵‿୨♡୧‿︵‿︵
+🗑️ ${taguser} 🗑️
+   FUE ELIMINAD@
+︵‿︵‿୨♡୧‿︵‿︵
+
+👉 No dio el level  
+👉 Kick directo del grupo  
+👉 Pa adornar esta la/el lider 😏 
+
+「 Ni modo bebé, nomas eras planta🌱 」`,
+`╔════ 💀 ════╗
+ 🚮 ELIMINADX 🚮
+╚════ 💀 ════╝
+
+${taguser} fue sacadx del grupo 🎮  
+➤ Jugador expulsado por planta 🌱  
+➤ No jugaba ni con el plato de la comida 😂 
+
+🚷 Next... ¡que pase el que sigue!`    
     await conn.sendLuffy(m.chat, txt1, sunflare1, ban, img, img, ig, estilo)
   }
 
