@@ -4,13 +4,13 @@ const handler = async (m, { conn, command }) => {
   if (command === 'consejo') {
     const consejo = consejos[Math.floor(Math.random() * consejos.length)];
     const mensaje = `╭─◆────◈⚘◈─────◆─╮\n\n⠀⠀🌟 *Consejo del día* 🌟\n\n❥ ${consejo}\n\n╰─◆────◈⚘◈─────◆─╯`;
-    await conn.reply(m.chat, mensaje, m, rcanal);
+    await conn.reply(m.chat, mensaje, m,);
   }
 
   if (command === 'frase') {
     const frase_romantica = frasesromanticas[Math.floor(Math.random() * frasesromanticas.length)];
     const mensaje = `╭─◆────◈⚘◈─────◆─╮\n\n⠀⠀💖 *Frase romántica* 💖\n\n❥ ${frase_romantica}\n\n╰─◆────◈⚘◈─────◆─╯`;
-    await conn.reply(m.chat, mensaje, m, rcanal);
+    await conn.reply(m.chat, mensaje, m,);
   }
 };
 
