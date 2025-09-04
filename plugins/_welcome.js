@@ -81,7 +81,7 @@ if (chat.welcome && m.messageStubType == 28) {
         .replace(/@user/g, taguser)
         .replace(/@group/g, groupName)
         .replace(/@desc/g, groupDesc)
-  const msgskick = [ `╔════ 💀 ════╗
+  const msgskick : [ `╔════ 💀 ════╗
    ✂️ ELIMINADX ✂️
 ╚════ 💀 ════╝
 
@@ -109,7 +109,7 @@ if (chat.welcome && m.messageStubType == 32) {
   const groupName = groupMetadata.subject
   const groupDesc = groupMetadata.desc || 'sin descripción'
 
-  : [ `╭───────👾───────╮
+  const msgsbye : [ `╭───────👾───────╮
      🚪 SE FUE ${taguser} 🚪
 ╰───────👾───────╯
 
