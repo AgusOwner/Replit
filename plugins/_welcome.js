@@ -27,21 +27,39 @@ if (chat.welcome && m.messageStubType == 27) {
   const groupDesc = groupMetadata.desc || 'sin descripción'
 
   const msgsWelcome = [
-    `╔════   *𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐗*    ═══╗
-╠═ ${taguser}
-╠ *UN GUSTO TENERTE AQUI* 👋
-╠ Disfruta de la estadía 🫰
-╠ Recuerda leer la descripción... 
-║
-╠══ ${botname} ═╣`,
-`┏━━━━━━━━━━━━━━
-┃──〘 *𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗫* 〙
-┃━━━━━━━━━━━━
-┃── ${taguser}
-┃ *_Un gusto tenerte aqui_*
-┃ *_Disfruta tu estadía 😇_*
-┃
-┗━━━━━ ${botname} ━━━━━━`
+    `┏━━━━━━━━━━━━━━━━━━━┓
+┃      ✨ 𝗕𝗜𝗘𝗡𝗩𝗘𝗡𝗜𝗗𝗫  ✨     ┃ 
+┗━━━━━━━━━━━━━━━━━━━┛
+╭─▸ 👤 Nuevo miembro:  
+│      ${taguser} 
+│
+╰─▸ 🎉 Aquí se viene a:  
+       ─ Reír 😂  
+       ─ Compartir 🌍  
+       ─ Pasarla brutal 🔥  
+       ─ Hacer historia ⭐
+       
+┏━━━━━ 🎊 DISFRUTA 🎊 ━━━━━┓
+┃   🚀 Ponte cómodx, que esto  
+┃   es más que un grupo...  
+┃   ¡Es una familia! 💜  
+┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+By ${botname}`,
+`╔═══════════════════╗
+   🎮 ＢＩＥＮＶＥＮＩＤ X 🎮
+╚═══════════════════╝
+
+⚡ ${taguser} ⚡  
+✨ ¡Un gusto tenerte aquí! ✨  
+
+📜 Reglas básicas:  
+➤ Respeta a todos 🤝  
+➤ Lee la descripción 📖  
+➤ Disfruta y juega limpio 🕹️  
+
+⚔️ ${groupName.toUpperCase()} ⚔️  
+「 ¡Que comience la partida! 」🔥`
   ]
 
 
