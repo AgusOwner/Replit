@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
     await m.react('🕷️')
 
-    const vid = `https://files.catbox.moe/c64bvm.mp4`
+    const img = `https://files.catbox.moe/84curn.jpg`
 
 let tags = {};
 let emojis = {
