@@ -1,47 +1,12 @@
-import fetch from 'node-fetch';
+const handler = async (m, { conn }) => {
 
-let handler = async (m, { conn, usedPrefix, text, args, command }) => {
-    await m.react('☕');
 
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
-    let name = await conn.getName(who);
-    let edtr = `@${m.sender.split`@`[0]}`;
-    let username = conn.getName(m.sender);
-
-    // VCARD
-    let list = [{
-        displayName: "Chinchu Dzn",
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: Chinchu Dzn
-\nitem1.TEL;waid=5493855789747:5493855789747\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: ineffable.mvrco@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://www.instagram.com/ineffable.mvrco\nitem3.X-ABLabel:Internet\nitem4.ADR:;; Argentina 🇦🇷;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
-    }];
-
-    await conn.sendMessage(m.chat, {
-        contacts: {
-            displayName: `${list.length} Contacto`,
-            contacts: list
-        },
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                title: 'Hello, I am the official creator of MvrcoSex.',
-                body: dev,
-                thumbnailUrl: 'https://files.catbox.moe/zxwd04.jpg',
-                sourceUrl: 'https://wa.me/56983073328?text=Hola+quiero+adquirir+bot',
-                mediaType: 1,
-                renderLargerThumbnail: true
-            }
-        }
-    }, {
-        quoted: m
-    });
-
-    let txt = `👋 *Hola \`${username}\` este es*\n*el contacto de mi desarrollador*`;
-
-    await conn.sendMessage(m.chat, { text: txt });
+  conn.sendMessage(m.chat, {
+text: `Hola ${taguser} aquí tienes el contacto de mi dueño\nChinchu dzn: +5493855789747\n> escribe si quieres info del bot`,
+}, { quoted: m });
 };
 
-handler.help = ['owner', 'creador'];
 handler.tags = ['info'];
-handler.command = /^(owner|creator|creador|dueño)$/i;
-
+handler.help = ['comprar'];
+handler.command = ['Dueño', 'owner'];
 export default handler;
