@@ -8,7 +8,7 @@ let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/uogbz0.jpg'  
 
 let nombre, foto, edit, newlink, status, admingp, noadmingp, aceptar
-nombre = `*${emoji} ${usuario} ah cambiado el nombre del grupo.*`
+nombre = `*${emojis} ${usuario} ah cambiado el nombre del grupo.*`
 
 foto = `*${emojis} ${usuario} ah cambiado la imagen del grupo.*`
 
