@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
   let tags = {
     "xsearch": "「 *Search* 」🍄",
     "xdl": "「 *Download* 」💥",
-    "emox": "「 *Gifs* 」🪼",
+    "emox": "「 *Gifs* 」💦",
     "nsfw": "「 *Contenido* 」🍑"
 
   }
@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
   let emojis = {
     "xsearch": "🍄",
     "xdl": "💥",
-    "emox": "🪼",
+    "emox": "💦",
     "nsfw": "🍑"
   }
 
