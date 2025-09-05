@@ -10,13 +10,13 @@ let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'http
 let nombre, foto, edit, newlink, status, admingp, noadmingp, aceptar
 nombre = `*${emoji} ${usuario} ah cambiado el nombre del grupo.*`
 
-foto = `*${emoji} ${usuario} ah cambiado la imagen del grupo.*`
+foto = `*${emojis} ${usuario} ah cambiado la imagen del grupo.*`
 
-edit = `*${emoji} ${usuario} ah permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} configuren el grupo.*`
+edit = `*${emojis} ${usuario} ah permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} configuren el grupo.*`
 
 newlink = `*${emoji} El enlace del grupo fue restablecido*`
 
-status = `${emoji} *ESTE GRUPO HA SIDO ${m.messageStubParameters[0] == 'on' ? '`CERRADO*` 🔒' : '`ABIERTO*` 🔓'}\n*POR* ${usuario}\n\n${m.messageStubParameters[0] == 'on' ? '> Solo admins pueden escribir' : '> Todos pueden escribir'}`
+status = `${emojis} *ESTE GRUPO HA SIDO ${m.messageStubParameters[0] == 'on' ? '`CERRADO*` 🔒' : '`ABIERTO*` 🔓'}\n*POR* ${usuario}\n\n${m.messageStubParameters[0] == 'on' ? '> Solo admins pueden escribir' : '> Todos pueden escribir'}`
 
 admingp = `*💫 @${m.messageStubParameters[0].split`@`[0]} Ahora es admin del grupo*`
 
