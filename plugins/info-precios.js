@@ -2,7 +2,7 @@
 import axios from "axios";
 
 let handler = async (m, { conn, command }) => {
-    const comprar = 'https://files.catbox.moe/a0p4x2.jpg';
+    const comprar = 'https://files.catbox.moe/917s1x.jpg';
 
     await m.react(command === 'vendedor' ? '📞' : '🛒');
 
