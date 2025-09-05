@@ -19,9 +19,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
  「 👋Hola ${usertag}👋 」
 > ${saludo}\n\n`,
 
-    header: category => `╭──• ${category}`,
-    body: (cmd, emoji) => `│${emoji}° ${cmd}`,
-    footer: '╰──•',
+    header: category => `╭───‧₊˚✧[${category}]✧˚₊‧`,
+    body: (cmd, emoji) => `𓉘${emoji} ➺ ${cmd}`,
+    footer: '╰──✧･ﾟ: *✧･ﾟ:* 🤍 *:･ﾟ✧*:･ﾟ✧',
     after: `> ${dev}`
   }
 
