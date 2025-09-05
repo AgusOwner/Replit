@@ -6,7 +6,7 @@ text: `Mi dueña es Chinchu dzn y el dueño de ella es Jota🐼🥵`,
 }, { quoted: fkontak });
 };
 
-handler.tags = ['fun'];
+handler.tags = ['chinchu'];
 handler.help = ['fun'];
 handler.command = ['chinchu'];
 export default handler;
