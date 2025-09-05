@@ -20,15 +20,16 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
   }
 
   let defaultMenu = {
-    before: `*👋🏻 ¡Hola!* *${usertag}*
-*Bienvenido al Menú Nsfw* 🔞
-
-> \`\`\`${fechaHora}\`\`\`
+    before: `╔═══════《🔥》═══════╗
+     〘 Menú-Nsfw 〙
+╚═══════《🥵》═══════╝
+ 「 👋Hola ${usertag}👋 」
+> ${saludo}\n> \`\`\`${fechaHora}\`\`\`
 `,
 
-    header: category => `╭──• ${category}`,
-    body: (cmd, emoji) => `│${emoji}° ${cmd}`,
-    footer: '╰──•',
+    header: category => `╭───‧₊˚✧[${category}]✧˚₊‧`,
+    body: (cmd, emoji) => `𓉘${emoji} ➺ ${cmd}`,
+    footer: '╰──✧･',
     after: `> ${dev}`
   }
 
