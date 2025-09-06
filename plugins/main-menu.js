@@ -17,35 +17,35 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered).length
     const readMore = '\u200b'.repeat(850)
 
-    await m.react('🕷️')
+    await m.react('🐼')
 
-    const img = `https://files.catbox.moe/84curn.jpg`
+    const vid = 'https://files.catbox.moe/js58k4.mp4'
 
 let tags = {};
 let emojis = {
-  main: "🕷️",
-  info: "🗒️",
+  main: "🤍",
+  info: "☁️",
   config: "⚙️",
-  dl: "🔽",
-  search: "🔎",
+  dl: "🫧",
+  search: "🧋",
   ia: "🤖",
-  ff: "🕹️",
-  frases: "✍️",
-  converter: "🔄",
+  ff: "👾",
+  frases: "💞",
+  converter: "🪾",
   tools: "🛠️",
-  gc: "👾",
+  gc: "🌲",
   efectos: "🪻",
-  fun: "😂",
-  game: "🎯",
+  fun: "🍿",
+  game: "🕹️",
   anime: "🍬",
   maker: "🌷",
   logos: "🏝️",
   emox: "🪼",
-  nsfw: "🥵",
+  nsfw: "🍒",
   sticker: "⚡",
   rpg: "💸",
   rg: "🪴",
-  owner: "🤓"
+  owner: "☕"
 };
 
 const tagTitles = {
@@ -81,17 +81,28 @@ for (let key in emojis) {
     let defaultMenu = {
 
 
-    before: `---------🕷️𝐌𝐄𝐍𝐔 ${namebot}🕷️ ---------
-• 𝙷𝚘𝚕𝚊 ${taguser}👋
-• ${saludo}
+    before: `ㅤㅤ   ꒰꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ͜ |୨🫧୧꛱|꛱ ꛱͜ |꛱ ꛱͜ |꛱ ͜ ꛱|꛱ ꛱͜ |꛱ ͜ ꒱
+Ꮺ *H𐐫l⍺᳟ ࣪ ᦷᩘ${taguser}*
+*Bienvenido/a*  ࣪  ⿻   al   ࣭  ෨
+࣭   ✿  *Menú  de  JotaBot*  𓈒𓏸      ☁︎    
+﹏͜͡ *${saludo}* ﹏͜͡
 
-> \`\`\`${fechaHora}\`\`\`
-ㅤㅤ *✨ 𝗟𝗶𝘀𝘁𝗮 𝗱𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼𝘀 ✨*
+> ꒰꛱ ͜Desarrollado por *Dev.Criss 🇦🇱*
+@${creadorN}
+
+*𓈒𓏸🐼 \`𝖡𝗈𝗍𝖭𝖺𝗆𝖾:\`* ${botname}
+*𓈒𓏸🌿 \`𝖴𝗉𝗍𝗂𝗆𝖾:\`* ${uptime}
+*𓈒𓏸👥 \`𝖴𝗌𝖾𝗋𝗌:\`* ${totalreg}
+*𓈒𓏸🍙 \`𝖵𝖾𝗋𝗌𝗂𝗈𝗇:\`* ${vs}
+
+> ☕ 𝖲𝗂 𝖾𝗇𝖼𝗎𝖾𝗇𝗍𝗋𝖺 𝗎𝗇 𝖼𝗈𝗆𝖺𝗇𝖽𝗈 𝖼𝗈𝗇 𝖾𝗋𝗋𝗈𝗋𝖾𝗌 𝗇𝗈 𝖽𝗎𝖽𝖾𝗌 𝖾𝗇 𝗋𝖾𝗉𝗈𝗋𝗍𝖺𝗋𝗅𝗈 𝖼𝗈𝗇 𝖾𝗅 𝖢𝗋𝖾𝖺𝖽𝗈𝗋
+${readMore}
+ㅤㅤ *乂 ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs 乂*
 `,
 
-      header: category => `╭┈┈ ๑❀๑${category}`,
+      header: category => `╭──•${category}`,
       body: (cmd, emoji) => `│${emoji} ${cmd}`,
-      footer: '╰──๑❀๑',
+      footer: '╰──•',
       after: `> ${dev}`
   }
 
@@ -121,7 +132,7 @@ for (let key in emojis) {
 
 
    await conn.sendMessage(m.chat, {
-    image: { url: img },
+    video: { url: vid },
     caption: menuText,
     mentions: [m.sender, creadorM],
     gifPlayback: true
