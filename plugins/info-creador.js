@@ -1,46 +1,47 @@
+import fetch from 'node-fetch';
 
-import fetch from "node-fetch";
+let handler = async (m, { conn, usedPrefix, text, args, command }) => {
+    await m.react('☕');
 
-let handler = async (m, { conn, command }) => {
-    
-    if (command === 'Dueño') {
-        let username = await conn.getName(m.sender);
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    let name = await conn.getName(who);
+    let edtr = `@${m.sender.split`@`[0]}`;
+    let username = conn.getName(m.sender);
 
-        await conn.sendMessage(m.chat, {
-            text: `👤 *Hola ${username}*\n\nAquí tienes el contacto del dueño para adquirir el bot *${botname}*.\nPuedes escribirle para más detalles.`
-        }, { quoted: m });
+    // VCARD
+    let list = [{
+        displayName: "Chinchu Dzn",
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: Chinchu Dzn
+\nitem1.TEL;waid=5493855789747:5493855789747\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: aure.vp@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://www.instagram.com/aure.vp\nitem3.X-ABLabel:Internet\nitem4.ADR:;; Argentina 🇦🇷;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
+    }];
 
-        // Enviar contacto
-        let list = [{
-            displayName: "Chinchu",
-            vcard: `BEGIN:VCARD\nVERSION:3.0\nFN: Chinchu\nitem1.TEL;waid=5493855789747:5493855789747\nitem1.X-ABLabel:Número\nitem2.EMAIL;type=INTERNET: novaspark.community@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://www.instagram.com/nohayxd\nitem3.X-ABLabel:Instagram\nitem4.ADR:;; Argentina 🇦🇷;;;;\nitem4.X-ABLabel:Región\nEND:VCARD`,
-        }];
-
-        await conn.sendMessage(m.chat, {
-            contacts: {
-                displayName: `${list.length} Contacto`,
-                contacts: list
-            }
-        }, { quoted: m });
-
-        return;
-    }
-
-    ];
-
-    await conn.sendMessage(
-        m.chat,
-        {
-            caption: botname,
-            footer: dev,
-            viewOnce: true
+    await conn.sendMessage(m.chat, {
+        contacts: {
+            displayName: `${list.length} Contacto`,
+            contacts: list
         },
-        { quoted: m }
-    );
+        contextInfo: {
+            externalAdReply: {
+                showAdAttribution: true,
+                title: 'Hola, este es el contacto de mi creador.',
+                body: dev,
+                thumbnailUrl: 'https://files.catbox.moe/81sp3o.jpg',
+                sourceUrl: 'https://wa.me/5493855789747?text=Hola+quiero+adquirir+bot',
+                mediaType: 1,
+                renderLargerThumbnail: true
+            }
+        }
+    }, {
+        quoted: m
+    });
+
+    let txt = `👋 *Hola \`${username}\` este es*\n*el contacto de mi desarrollador*`;
+
+    await conn.sendMessage(m.chat, { text: txt });
 };
 
-handler.help = ["precios", "vendedor"];
-handler.tags = ["info"];
-handler.command = /^(precios|vendedor)$/i;
+handler.help = ['owner', 'creador'];
+handler.tags = ['info'];
+handler.command = /^(owner|creator|creador|dueño)$/i;
 
 export default handler;
