@@ -82,7 +82,7 @@ for (let key in emojis) {
 
 
     before: `---------🕷️𝐌𝐄𝐍𝐔 ${namebot}🕷️ ---------
-• 𝙷𝚘𝚕𝚊 ${taguser} 👋
+• 𝙷𝚘𝚕𝚊 ${taguser}👋
 • ${saludo}
 
 > \`\`\`${fechaHora}\`\`\`
