@@ -23,13 +23,13 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 let tags = {};
 let emojis = {
-  main: "🤍",
-  info: "☁️",
+  main: "🕷️",
+  info: "🕸️",
   config: "⚙️",
-  dl: "🫧",
-  search: "🧋",
+  dl: "⬇️",
+  search: "🔎",
   ia: "🤖",
-  ff: "👾",
+  ff: "🎮",
   frases: "💞",
   converter: "🪾",
   tools: "🛠️",
@@ -86,6 +86,7 @@ for (let key in emojis) {
 • ${saludo}
 
 > \`\`\`${fechaHora}\`\`\`
+${readMore}
 ㅤㅤ *✨ 𝗟𝗶𝘀𝘁𝗮 𝗱𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼𝘀 ✨*
 `,
 
