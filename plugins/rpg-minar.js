@@ -13,7 +13,7 @@ let info = `${emoji} *Te has adentrando en lo profundo de las cuevas*
 > *Obtuviste:*
 
 💫 *Exp:* ${hasil}
-🪙 *ShadowCoins:* ${coin}
+🪙 *${moneda}:* ${coin}
 🔩 *Hierro:* ${iron}
 🕋 *Carbón:* ${coal}
 🪨 *Piedra:* ${stone}`
