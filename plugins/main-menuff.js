@@ -65,7 +65,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 }
 
 handler.tags = ['main']
-handler.help = ['menulogos']
+handler.help = ['menuff']
 handler.command = /^(menuff|comandosff|ffmenu)$/i;
 handler.fail = null;
 
