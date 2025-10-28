@@ -43,11 +43,11 @@ global.done = '✅'
 global.error = '✖️'
 
 //EMOJIS PREDETERMINADOS
-global.emoji = '🕷️'
+global.emoji = '🎭'
 global.emoji2 = '🫟'
-global.emoji3 = '✨'
-global.emoji4 = '🕸️'
-global.emoji5 = '🍄'
+global.emoji3 = '🩸'
+global.emoji4 = '🇦🇱'
+global.emoji5 = '🔥'
 global.emojis = [emoji, emoji2, emoji3, emoji4, emoji5].getRandom()
 
 //EMOJIS INFORMATIVOS
@@ -125,7 +125,7 @@ global.fechaHora = `${diaSemana}, ${dia} de ${mes} del ${año} │ Hora: ${hora}
 
   // Paquete y autor estilizado
   global.packN = `
-∿ 協会 Yancito Bot  閲覧 ࣪ ˖ \n↳ @Chinchu_Dzn\n\n🐼 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲:\n↳ @${global.botname}\n👤 𝐔𝐬𝐮𝐚𝐫𝐢𝐨:\n↳ @${global.usname}\n\n`
+∿  𝐁𝐨𝐭 𝐁𝐲:\n↳ @${global.botname}\n👤 𝐔𝐬𝐮𝐚𝐫𝐢𝐨:\n↳ @${global.usname}\n\n`
   global.authorN = dev
 
 /*
