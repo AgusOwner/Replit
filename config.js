@@ -9,37 +9,38 @@ import moment from 'moment-timezone'
 
 global.owner = [
    ['573155227977', 'Jota 🐼', true],
-   ['5493855789747', 'Chinchu_dzn', true],
+   ['56922113858', 'Alee🎭', true],
    ['229356135813175', '@Jxta', true],
+   ['92497120333890', '@Alee', true],
 ]
 
 global.creator = [
    ['573155227977', 'Jota 🐼', true]
 ]
 
-global.mods = ['51990841568', '51965911060']
-global.prems = ['51965911060', '51906168999']
+global.mods = 
+global.prems = 
 
 
-global.packname = 'Yancito Bot MD'
-global.botname = 'Yancito Bot'
-global.wm = 'Yancito Bot - MD'
-global.author = '𝗬𝗮𝗻𝗰𝗶𝘁𝗼 𝗕𝗼𝘁'
-global.dev = 'Yancito Bot by Jotaa.hrz'
+global.packname = 'Lokweed Bot MD'
+global.botname = 'Lokweed Bot'
+global.wm = 'Lokweed Bot - MD'
+global.author = 'Lokweed MD'
+global.dev = 'Lokweed Bot by Jotaa.hrz'
 global.errorm = 'Error: ${error.message}'
-global.namebot = '𝐘𝐀𝐍𝐂𝐈𝐓𝐎'
-global.nameai = 'Yancito Ai'
-global.textbot = 'YANCITO BOT MD'
-global.textmain = 'YANCITOBOT'
-global.textmain2 = 'Yancito Bot MD'
+global.namebot = 'Lokweed'
+global.nameai = 'Lokweed Ai'
+global.textbot = 'LOKWEED BOT MD'
+global.textmain = 'LOKWEEDBOT'
+global.textmain2 = 'Lokweed Bot MD'
 global.vs = '2.1.0'
-global.emotg = '🕷️'
-global.msgtagall = '🕷️ ᴍᴇɴᴄɪoɴ ɢᴇɴᴇʀᴀʟ 🕷️\n ʏᴀɴꜱɪᴛᴏ ʙᴏᴛ ʟᴏꜱ ɪɴᴠᴏᴄᴀ ✨️'
-global.moneda = 'YancitoCoins'
+global.emotg = '🎭'
+global.msgtagall = '𝗠𝗘𝗡𝗖𝗜𝗢𝗡 𝗚𝗘𝗡𝗘𝗥𝗔𝗟 𝗟𝗢𝗞𝗪𝗘𝗘𝗗 𝗕𝗢𝗧'
+global.moneda = 'LokweedCoins'
 
-global.sessions = 'SessionYancito'
+global.sessions = 'LokweedSession'
 global.jadi = 'JadiBots'
-global.nameqr = 'Yancito'
+global.nameqr = 'Lokweed'
 
 
 global.catalogo = fs.readFileSync('./media/catalogo.jpg')
