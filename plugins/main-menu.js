@@ -76,28 +76,28 @@ const tagTitles = {
 };
 
 for (let key in emojis) {
-  tags[key] = `「 *${tagTitles[key]}* 」 ${emojis[key]}`;
+  tags[key] = `*${tagTitles[key]}*`;
 }
 
     let defaultMenu = {
 
 
-    before: `       ╭───────────────╮
-        │🎭𝐋𝐎𝐊𝐖𝐄𝐄𝐃 𝐁𝐎𝐓 🎭│
-        ╰───────────────╯
+    before: `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮
+︶•︶°︶•︶°︶•︶°︶•︶°︶•︶°︶
+> ✨ Hola Soy *𝙇𝙤𝙙𝙬𝙚𝙚𝙠 𝘽𝙤𝙩*, Aquí tienes la lista de comandos.✨
 
-🎭 Bienvenidx ${taguser} 
-Donde el estilo se mezcla con la elegancia 💫.  
+╭┈ࠢ͜┅ࠦ͜͜╾݊͜─ؕ͜─ׄ͜─֬͜─֟͜─֫͜─ׄ͜─ؕ͜─݊͜┈ࠦ͜┅ࠡ͜͜┈࠭͜͜۰۰͜۰
+│👤 *usuario* » ${taguser}
+│🔄 *Versión* » ${vs}
+│✨ *Plugins* » 339
+╰ׅ┈ࠢ͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴ ⋱࣭ ᩴ  ⋮֔   ᩴ ⋰╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜┈ࠢ͜╯ׅ
 ${readMore}
-  ┏━━━•❅•°•❈•°•❅•━━━┓
-     💠 𝐶𝑜𝑚𝑎𝑛𝑑𝑜𝑠 💠
-  ┗━━━•❅•°•❈•°•❅•━━━┛
 `,
 
-      header: category => `⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆｡ﾟ☁︎｡⋆\n    ${category}\n`,
-      body: (cmd, emoji) => `◈↬${emoji} ${cmd}`,
-      footer: '_____*_______*______',
-      after: `\n> ╭───────────────╮\n> │ ${dev}\n> ╰───────────────╯`
+      header: category => `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 ${category} 𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜`,
+      body: (cmd, emoji) => `|${emoji} ${cmd}`,
+      footer: '╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ',
+      after: `> ${dev}`
   }
 
     let help = Object.values(global.plugins)
