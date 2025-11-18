@@ -84,7 +84,7 @@ for (let key in emojis) {
 
     before: `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮
 ︶•︶°︶•︶°︶•︶°︶•︶°︶•︶°︶
-> ✨ Hola Soy *𝙇𝙤𝙙𝙬𝙚𝙚𝙠 𝘽𝙤𝙩*, Aquí tienes la lista de comandos.✨
+> ✨ Hola Soy *𝙇𝙤𝙠𝙬𝙚𝙚𝙙 𝘽𝙤𝙩*, Aquí tienes la lista de comandos.✨
 
 ╭┈ࠢ͜┅ࠦ͜͜╾݊͜─ؕ͜─ׄ͜─֬͜─֟͜─֫͜─ׄ͜─ؕ͜─݊͜┈ࠦ͜┅ࠡ͜͜┈࠭͜͜۰۰͜۰
 │👤 *usuario* » ${taguser}
