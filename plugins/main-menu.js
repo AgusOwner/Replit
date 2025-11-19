@@ -23,29 +23,29 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 let tags = {};
 let emojis = {
-  main: "🕷️",
-info: "💀",
+  main: "🔖",
+info: "📄",
 config: "⚙️",
 dl: "🩸",
-search: "👁️",
+search: "🔍",
 ia: "🤖",
 ff: "🎰",
-frases: "🖤",
+frases: "💘",
 converter: "🌀",
 tools: "🛠️",
-gc: "🌑",
+gc: "🪼",
 efectos: "🕯️",
 fun: "🫟",
 game: "🎮",
-anime: "👹",
-maker: "🌹",
+anime: "🩰",
+maker: "🎠",
 logos: "🕸️",
-emox: "🪦",
-nsfw: "🍒",
-sticker: "⚡",
+emox: "🧸",
+nsfw: "🔞",
+sticker: "🏵️",
 rpg: "💰",
-rg: "🌒",
-owner: "☕"
+rg: "🌸",
+owner: "💐"
 };
 
 const tagTitles = {
@@ -82,12 +82,18 @@ for (let key in emojis) {
     let defaultMenu = {
 
 
-    before: `̮
+    before: `｡ﾟ○☆💜☆ᥫᩣαժαɾαᥫᩣ☆💜☆○ﾟ｡
+     𓊆ྀི𝑴𝒆𝒏𝒖 𝑨𝒅𝒉𝒂𝒓𝒂 𝑩𝒐𝒕ྀི𓊇
+𓂃 ࣪˖ ⋆.˚ ʚїɞ ⋆  ${taguser} ⋆. 𐙚 ˚
+𝚃𝚎𝚗 𝚞𝚗/𝚞𝚗𝚊 ${saludo} ౨ৎ✨
+
+> ǫᴜᴇ ᴛᴜ ᴠɪᴅᴀ ʙʀɪʟʟᴇ ᴄᴏᴍᴏ ᴛᴜ sᴏɴʀɪsᴀ 🥺
+${readMore}
 `,
 
-      header: category => `╭┈ࠢ͜─ׄ֟፝͜─ׄ͜─ׄ͜╴𐔌 ${category}  𐦯╶͜─ׄ͜─ׄ֟፝͜─ׄ͜─ׄ͜`,
-      body: (cmd, emoji) => `|${emoji} ${cmd}`,
-      footer: '╰ׅ͜─֟͜─͜─ٞ͜─͜─๊͜─͜─๋͜─⃔═̶፝֟͜═̶⃔─๋͜─͜─͜─๊͜─ٞ͜─͜─֟͜┈ࠢ͜╯ׅ\n',
+      header: category => `    𓂃ෆ˚────୨ৎ────𐚁๋࣭⭑ֶָ֢\n    ${category}\n`,
+      body: (cmd, emoji) => `𖦹°‧★${emoji} ${cmd}`,
+      footer: '˚₊‧✩ ˚₊‧꒰ა ʚིᵋº̣̥͙̣̥͙ᵌɞྀ ໒꒱ ‧₊˚ ✩‧₊˚\n',
       after: `> ${dev}`
   }
 
