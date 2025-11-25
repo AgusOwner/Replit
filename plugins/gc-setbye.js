@@ -1,18 +1,25 @@
-let handler = async (m, { conn, text, isROwner, isOwner }) => {
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+  let chat = global.db.data.chats[m.chat]
 
-if (text) {
-global.db.data.chats[m.chat].sBye = text
-conn.reply(m.chat, `*✅ La Despedida del grupo ha sido configurada*`, m)  
+  if (!text) {
+    if (chat.customBye) {
+      return m.reply(`💬 Mensaje de despedida actual:\n\n${chat.customBye}`)
+    } else {
+      return m.reply(`👋 No hay mensaje personalizado.\nEl bot usa el mensaje predeterminado.`)
+    }
+  }
 
-} else {
-    conn.reply(m.chat, `*${emojis} ¡Escribe el mensaje de despedida!*\n✎ *Puedes usar:*\n\n- *\`@user\`* (Mención al Usuario)\n- *\`@group\`* (Nombre del Grupo)\n- *\`@desc\`* (Descripción del Grupo)\n\n> ${emojis} Los @ son opcionales`, m)
+  if (text.trim().toLowerCase() === 'default') {
+    chat.customBye = null
+    return m.reply('🔁 Mensaje de despedida restaurado al original.')
+  }
+
+  chat.customBye = text.trim()
+  m.reply('✅ Mensaje de despedida actualizado correctamente.')
 }
-}
-
-handler.help = ['setbye']
-handler.tags = ['gc']
-handler.command = ['setbye', 'despedida'] 
-handler.botAdmin = true
+handler.help = ['setbye <texto>']
+handler.tags = ['grupo']
+handler.command = /^setbye$/i
 handler.admin = true
 handler.group = true
 export default handler
