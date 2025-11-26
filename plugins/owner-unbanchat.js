@@ -7,7 +7,7 @@ await conn.reply(m.chat, `*${emojis} Chat desbaneado.*`, m)
 }
 handler.help = ['unbanchat'];
 handler.tags = ['owner'];
-handler.command = ['unbanchat','desbanearchat','desbanchat', 'jotaoff']
+handler.command = ['unbanchat','desbanearchat','desbanchat']
 handler.rowner = true
 handler.group = true
 
