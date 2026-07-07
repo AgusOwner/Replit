@@ -26,7 +26,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
     return m.reply(`❌ *Error al procesar la descarga.*`)
   }
 
-  let cap = `🛸 *[ ADHARA BOT MD ]* 🌌\n\n`
+  let cap = `🛸 *[ aleizn BOT MD ]* 🌌\n\n`
   cap += `🎶 *Título:* ${vid.title}\n`
   cap += `⏳ *Duración:* ${vid.timestamp}\n`
   cap += `👤 *Autor:* ${vid.author.name}\n`

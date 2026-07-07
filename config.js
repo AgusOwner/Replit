@@ -22,25 +22,25 @@ global.mods =
 global.prems = 
 
 
-global.packname = 'Adhara Bot MD'
-global.botname = 'Adhara Bot'
-global.wm = 'Adhara Bot - MD'
-global.author = 'Adhara MD'
-global.dev = 'Adhara Bot'
+global.packname = 'aleizn Bot MD'
+global.botname = 'aleizn Bot'
+global.wm = 'aleizn Bot - MD'
+global.author = 'aleizn MD'
+global.dev = 'aleizn Bot'
 global.errorm = 'Error: ${error.message}'
-global.namebot = 'Adhara'
-global.nameai = 'Adhara Ai'
-global.textbot = 'ADHARA BOT MD'
+global.namebot = 'aleizn'
+global.nameai = 'aleizn Ai'
+global.textbot = 'aleizn BOT MD'
 global.textmain = 'ALEIZNBOT'
-global.textmain2 = 'Adhara Bot MD'
+global.textmain2 = 'aleizn Bot MD'
 global.vs = '2.1.0'
 global.emotg = '💜'
 global.msgtagall = '💜⋆ 𝗘𝗧𝗜𝗤𝗨𝗘𝗧𝗔 𝗚𝗘𝗡𝗘𝗥𝗔𝗟 ⋆💜\n🛍️𝗔𝗱𝗾𝘂𝗶𝗲𝗿𝗲 𝗲𝗹 𝗯𝗼𝘁 𝗰𝗼𝗻 ⨾\n↳ wa.me/51992621601‬'
 global.moneda = 'AleCoins'
 
-global.sessions = 'AdharaSession'
+global.sessions = 'aleiznSession'
 global.jadi = 'JadiBots'
-global.nameqr = 'Adhara'
+global.nameqr = 'aleizn'
 
 
 global.catalogo = fs.readFileSync('./media/catalogo.jpg')

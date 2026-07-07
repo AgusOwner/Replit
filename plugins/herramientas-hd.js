@@ -19,7 +19,7 @@ let handler = async (m, { conn, prefix, command }) => {
     // Procesamiento con IA
     const enhancedBuffer = await ihancer(media, { method: 1, size: 'high' });
 
-    const caption = `✨ *ADHARA 𝐁𝐎𝐓 𝐇𝐃*`;
+    const caption = `✨ *aleizn 𝐁𝐎𝐓 𝐇𝐃*`;
 
     await conn.sendMessage(m.chat, {
       image: enhancedBuffer,
