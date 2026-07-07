@@ -22,7 +22,7 @@ say('Adhara\nBot\nMD', {
   align: 'center',
   gradient: ['red', 'magenta']
 });
-say(`by Jotaa.hrz}`, {
+say(`by Aleizna.hrz}`, {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']

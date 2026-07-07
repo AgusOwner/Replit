@@ -8,14 +8,14 @@ import axios from 'axios'
 import moment from 'moment-timezone' 
 
 global.owner = [
-   ['573155227977', 'Jota 🐼', true],
-   ['5493884642194', 'Antoo', true],
-   ['56926927454','@Anto', true],
-   ['229356135813175', '@Jxta', true],
+   ['51992621601', 'Aleizn 🐼', true],
+   ['51992621601', 'Aleizn', true],
+   ['51992621601','@Anto', true],
+   ['51992621601', 'Aleizn', true],
 ]
 
 global.creator = [
-   ['573155227977', 'Jota 🐼', true]
+   ['51992621601', 'Aleizn 🐼', true]
 ]
 
 global.mods = 
@@ -31,12 +31,12 @@ global.errorm = 'Error: ${error.message}'
 global.namebot = 'Adhara'
 global.nameai = 'Adhara Ai'
 global.textbot = 'ADHARA BOT MD'
-global.textmain = 'ADHARABOT'
+global.textmain = 'ALEIZNBOT'
 global.textmain2 = 'Adhara Bot MD'
 global.vs = '2.1.0'
 global.emotg = '💜'
-global.msgtagall = '💜⋆ 𝗘𝗧𝗜𝗤𝗨𝗘𝗧𝗔 𝗚𝗘𝗡𝗘𝗥𝗔𝗟 ⋆💜\n🛍️𝗔𝗱𝗾𝘂𝗶𝗲𝗿𝗲 𝗲𝗹 𝗯𝗼𝘁 𝗰𝗼𝗻 ⨾\n↳ wa.me/543884642194‬'
-global.moneda = 'AdharaCoins'
+global.msgtagall = '💜⋆ 𝗘𝗧𝗜𝗤𝗨𝗘𝗧𝗔 𝗚𝗘𝗡𝗘𝗥𝗔𝗟 ⋆💜\n🛍️𝗔𝗱𝗾𝘂𝗶𝗲𝗿𝗲 𝗲𝗹 𝗯𝗼𝘁 𝗰𝗼𝗻 ⨾\n↳ wa.me/51992621601‬'
+global.moneda = 'AleCoins'
 
 global.sessions = 'AdharaSession'
 global.jadi = 'JadiBots'

@@ -6,8 +6,8 @@ let handler = async (m, { conn, text: tiktok, args, command, usedPrefix }) => {
     if (imagesSent) return
     imagesSent = true
     try {
-        let Jota = await ttimg(tiktok)
-        let result = Jota?.data
+        let Aleizn = await ttimg(tiktok)
+        let result = Aleizn?.data
         for (let d of result) {
             await conn.sendMessage(m.chat, { image: { url: d } }, { quoted: m })
         }

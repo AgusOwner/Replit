@@ -11,8 +11,8 @@ const fkontak = {
   },
   message: {
     contactMessage: {
-      displayName: "JotaBot🐼",
-      vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:JotaBot🐼\nORG:JotaBot\nTEL;type=CELL;type=VOICE;waid=00000000000:+00 00000000\nEND:VCARD`
+      displayName: "AleiznBot🐼",
+      vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:AleiznBot🐼\nORG:AleiznBot\nTEL;type=CELL;type=VOICE;waid=00000000000:+00 00000000\nEND:VCARD`
     }
   }
 }
