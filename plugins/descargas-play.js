@@ -1,87 +1,50 @@
-import yts from 'yt-search';
-import fetch from 'node-fetch';
-import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+import yts from 'yt-search'
+import fetch from 'node-fetch'
 
-const handler = async (m, { conn, args, usedPrefix }) => {
-    if (!args[0]) return conn.reply(m.chat, `*${emojis} Proporciona una canción para buscar*\n> ejemplo: .play Destello - Kidd Voodoo`, m);
+let handler = async (m, { conn, command, text, usedPrefix }) => {
+  if (!text) return m.reply(`🛸 *[ BOX BOT MD ]* 🌌\n\n🚩 *Escribe el nombre de lo que deseas buscar.*\n📌 Ejemplo: *${usedPrefix + command} king nasir*`)
 
-    await m.react('🕓');
-    try {
-        let searchResults = await searchVideos(args.join(" "));
+  await m.react('🔍')
 
-        if (!searchResults.length) throw new Error('No se encontraron resultados.');
+  let res = await yts(text)
+  let vid = res.videos[0]
+  if (!vid) {
+    await m.react('❌')
+    return m.reply(`⚠️ *No se encontraron resultados.*`)
+  }
 
-        let video = searchResults[0];
-        let thumbnail = await (await fetch(video.miniatura)).buffer();
+  await m.react('⏳')
 
-        let messageText = `*Youtube - Download*\n\n`;
-        messageText += `${video.titulo}\n\n`;
-        messageText += `*⌛ Duración:* ${video.duracion || 'No disponible'}\n`;
-        messageText += `*👤 Autor:* ${video.canal || 'Desconocido'}\n`;
-        messageText += `*📆 Publicado:* ${convertTimeToSpanish(video.publicado)}\n`;
-        messageText += `*🖇️ Url:* ${video.url}\n`;
+  let isVideo = command === 'play2'
+  let apiUrl = isVideo 
+    ? ` :https://api.evogb.org/dl/ytmp3?url=${encodeURIComponent(vid.url)}&key=sasuke`
+    : `https://api.evogb.org/dl/ytmp3?url=${encodeURIComponent(vid.url)}&key=sasuke`
 
-        await conn.sendMessage(m.chat, {
-            image: thumbnail,
-            caption: messageText,
-            footer: dev,
-            contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 999,
-                isForwarded: true
-            },
-            buttons: [
-                {
-                    buttonId: `${usedPrefix}ytmp3 ${video.url}`,
-                    buttonText: { displayText: 'Audio' },
-                    type: 1,
-                },
-                {
-                    buttonId: `${usedPrefix}ytmp4 ${video.url}`,
-                    buttonText: { displayText: 'Vídeo' },
-                    type: 1,
-                }
-            ],
-            headerType: 1,
-            viewOnce: true
-        }, { quoted: m });
+  let json = await (await fetch(apiUrl)).json()
+  if (!json.status) {
+    await m.react('❌')
+    return m.reply(`❌ *Error al procesar la descarga.*`)
+  }
 
-        await m.react('✅');
-    } catch (e) {
-        console.error(e);
-        await m.react('✖️');
-        conn.reply(m.chat, '*`Error al buscar el video.`*', m);
-    }
-};
+  let cap = `🛸 *[ ADHARA BOT MD ]* 🌌\n\n`
+  cap += `🎶 *Título:* ${vid.title}\n`
+  cap += `⏳ *Duración:* ${vid.timestamp}\n`
+  cap += `👤 *Autor:* ${vid.author.name}\n`
+  cap += `📁 *Formato:* ${isVideo ? 'VIDEO (MP4)' : 'AUDIO (MP3)'}\n\n`
+  cap += `⚙️ *Box Bot MD • Enviando...* 🌀`
 
-handler.help = ['play'];
-handler.tags = ['descargas'];
-handler.command = ['play'];
-export default handler;
+  await conn.sendMessage(m.chat, { image: { url: vid.thumbnail }, caption: cap }, { quoted: m })
+  
+  await conn.sendMessage(m.chat, { 
+    [isVideo ? 'video' : 'audio']: { url: json.data.dl }, 
+    mimetype: isVideo ? 'video/mp4' : 'audio/mpeg' 
+  }, { quoted: m })
 
-async function searchVideos(query) {
-    try {
-        const res = await yts(query);
-        return res.videos.slice(0, 10).map(video => ({
-            titulo: video.title,
-            url: video.url,
-            miniatura: video.thumbnail,
-            canal: video.author.name,
-            publicado: video.timestamp || 'No disponible',
-            vistas: video.views || 'No disponible',
-            duracion: video.duration.timestamp || 'No disponible'
-        }));
-    } catch (error) {
-        console.error('Error en yt-search:', error.message);
-        return [];
-    }
+  await m.react('✅')
 }
 
-function convertTimeToSpanish(timeText) {
-    return timeText
-        .replace(/year/, 'año').replace(/years/, 'años')
-        .replace(/month/, 'mes').replace(/months/, 'meses')
-        .replace(/day/, 'día').replace(/days/, 'días')
-        .replace(/hour/, 'hora').replace(/hours/, 'horas')
-        .replace(/minute/, 'minuto').replace(/minutes/, 'minutos');
-}
+handler.help = ['play', 'play2'].map(v => v + ' <búsqueda>')
+handler.tags = ['downloader']
+handler.command = /^(play|play2)$/i
+
+export default handler

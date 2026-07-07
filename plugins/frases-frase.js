@@ -57,7 +57,7 @@ global.consejos = [
   'Nunca dejes de aprender; el conocimiento es una herramienta poderosa.',
   'Cuida de tu salud física y mental, son fundamentales para una vida plena.',
   'Disfruta de las pequeñas cosas, pues son ellas las que dan sentido a la vida.',
-  'Aprende a perdonar, tanto a los demás como a ti mismo, para liberar tu corazón.',
+  'Aprende a perdonar, taleizn a los demás como a ti mismo, para liberar tu corazón.',
   'Valora el tiempo que pasas con tus seres queridos, es el regalo más valioso que puedes dar y recibir.',
   'Sé amable y compasivo con los demás, cada acto de bondad puede marcar la diferencia en sus vidas.',
   'Aprende a decir "no" cuando sea necesario, y establece límites saludables.',

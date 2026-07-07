@@ -40,7 +40,7 @@ const questions = [
         answer: "A"
     },
     {
-        question: "¿Qué apóstol negó conocer a Jesús tres veces antes del canto del gallo?",
+        question: "¿Qué apóstol negó conocer a Jesús tres veces antes del caleizn del gallo?",
         options: ["Pedro", "Juan", "Santiago"],
         answer: "A"
     },

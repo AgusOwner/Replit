@@ -173,7 +173,7 @@ let media = or[Math.floor(Math.random() * 2)]
 if (media === 'audio') await this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true });
 if (media === 'sticker') await conn.sendFile(m.chat, randow, 'error.webp', '', m)}
 
-if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku|antojen|antogen|😈|👿|👉👌|👌👈)/gi)) {    
+if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku|aleiznjen|aleizngen|😈|👿|👉👌|👌👈)/gi)) {    
 let vn = 'https://qu.ax/CUmZ.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: fkontak })}    
